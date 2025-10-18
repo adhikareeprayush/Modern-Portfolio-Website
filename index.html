@@ -3,192 +3,669 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Template</title>
+    <meta
+      name="description"
+      content="A modern portfolio website showcasing web development skills. Built for educational purposes to teach HTML, CSS, and JavaScript fundamentals."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, web development, HTML, CSS, JavaScript, responsive design"
+    />
+    <meta name="author" content="ACES Web Development Training" />
+    <title>Portfolio Template - Modern Web Developer</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
-    <nav>
-      <h3>Logo.</h3>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="hamburger">
-        <img src="./icons/hamburger.svg" alt="" />
-      </div>
-    </nav>
-    <div class="sidebar">
+    <!-- Main Navigation Header -->
+    <header>
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-brand">
+          <h1 class="logo">Portfolio<span class="accent">.</span></h1>
+        </div>
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="#hero" role="menuitem" aria-label="Go to home section"
+              >Home</a
+            >
+          </li>
+          <li role="none">
+            <a
+              href="#projects"
+              role="menuitem"
+              aria-label="Go to projects section"
+              >Projects</a
+            >
+          </li>
+          <li role="none">
+            <a href="#about" role="menuitem" aria-label="Go to about section"
+              >About</a
+            >
+          </li>
+          <li role="none">
+            <a
+              href="#contact"
+              role="menuitem"
+              aria-label="Go to contact section"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <button
+          class="hamburger"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <img src="./icons/hamburger.svg" alt="Menu icon" />
+        </button>
+      </nav>
+    </header>
+    <!-- Mobile Navigation Sidebar -->
+    <div
+      class="sidebar"
+      id="mobile-menu"
+      role="dialog"
+      aria-labelledby="mobile-menu-title"
+      aria-hidden="true"
+    >
       <div class="sidebar-menu">
-        <img src="./icons/close.svg" alt="" width="30" class="close-btn" />
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <h2 id="mobile-menu-title" class="sr-only">Mobile Navigation Menu</h2>
+        <button class="close-btn" aria-label="Close mobile menu">
+          <img src="./icons/close.svg" alt="Close icon" width="30" />
+        </button>
+        <ul role="menu">
+          <li role="none">
+            <a href="#hero" role="menuitem" tabindex="-1">Home</a>
+          </li>
+          <li role="none">
+            <a href="#projects" role="menuitem" tabindex="-1">Projects</a>
+          </li>
+          <li role="none">
+            <a href="#about" role="menuitem" tabindex="-1">About</a>
+          </li>
+          <li role="none">
+            <a href="#contact" role="menuitem" tabindex="-1">Contact</a>
+          </li>
         </ul>
       </div>
     </div>
-    <section id="hero">
-      <div class="left">
-        <div class="hero-text">
-          <h2>I'm Suman Chhetri!</h2>
-          <span>Web Developer & Designer</span>
-        </div>
-        <p class="hero-desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis,
-          asperiores modi nostrum sequi tenetur eos deleniti vel sed corporis
-          officiis facere autem.
-        </p>
-        <button class="btn-primary">Download CV</button>
-      </div>
-      <img src="image.png" class="hero-image" alt="" width="500" />
-    </section>
-    <section id="projects">
-      <div class="title">
-        <h2>My Projects</h2>
-        <p class="sub-title">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum!
-        </p>
-      </div>
-      <div class="project-list">
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image.png" alt="" width="300" />
-          </div>
-          <div class="card-details">
-            <h4 class="card-title">Project Name</h4>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <!-- Hero Section -->
+    <main>
+      <section id="hero" class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2 id="hero-title" class="hero-name">
+              Hi, I'm <span class="name-highlight">Sarah Johnson</span>
+            </h2>
+            <p class="hero-subtitle">Full Stack Developer & UI/UX Designer</p>
+            <p class="hero-description">
+              Passionate about creating beautiful, functional, and user-centered
+              digital experiences. I specialize in modern web technologies and
+              love bringing ideas to life through code.
             </p>
-            <a href="#">Live Demo</a>
+            <div class="hero-buttons">
+              <button class="btn btn-primary" aria-label="Download my resume">
+                <span>Download Resume</span>
+              </button>
+              <button class="btn btn-secondary" aria-label="View my projects">
+                <span>View Projects</span>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image.png" alt="" width="300" />
-          </div>
-          <div class="card-details">
-            <h4 class="card-title">Project Name</h4>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <a href="#">Live Demo</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image.png" alt="" width="300" />
-          </div>
-          <div class="card-details">
-            <h4 class="card-title">Project Name</h4>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <a href="#">Live Demo</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image.png" alt="" width="300" />
-          </div>
-          <div class="card-details">
-            <h4 class="card-title">Project Name</h4>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <a href="#">Live Demo</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image.png" alt="" width="300" />
-          </div>
-          <div class="card-details">
-            <h4 class="card-title">Project Name</h4>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <a href="#">Live Demo</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image.png" alt="" width="300" />
-          </div>
-          <div class="card-details">
-            <h4 class="card-title">Project Name</h4>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <a href="#">Live Demo</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <div class="details">
-        <h3>About Myself!</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-          reprehenderit, nisi quisquam dolorum vel, sunt consequatur optio hic
-          nobis tenetur odio soluta quibusdam, numquam fuga alias obcaecati?
-          Rerum, ipsum quas!
-        </p>
-        <div class="social-links">
-          <a href="#">
-            <img src="./icons/twitter.svg" alt="" />
-          </a>
-          <a href="#">
-            <img src="./icons/insta.svg" alt="" />
-          </a>
-          <a href="#">
-            <img src="./icons/fb.svg" alt="" />
-          </a>
-        </div>
-      </div>
-      <img src="image.png" alt="" class="about-img" width="300" />
-    </section>
-    <section id="contact">
-      <div class="title">
-        <h2>Contact Me</h2>
-        <p class="sub-title">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum!
-        </p>
-      </div>
-      <form action="">
-        <div class="inputs">
-          <label for="name">Name:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Enter your name"
+        <div class="hero-image-container">
+          <img
+            src="image.png"
+            class="hero-image"
+            alt="Portrait of Sarah Johnson, Full Stack Developer"
+            width="500"
+            height="500"
           />
         </div>
-
-        <div class="inputs">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter your email"
-          />
+      </section>
+      <!-- Projects Section -->
+      <section
+        id="projects"
+        class="projects-section"
+        aria-labelledby="projects-title"
+      >
+        <div class="section-header">
+          <h2 id="projects-title" class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            Here are some of my recent projects that showcase my skills in web
+            development and design.
+          </p>
         </div>
 
-        <div class="inputs">
-          <label for="message">Message</label>
-          <textarea name="message" id="message" rows="5">
-Enter your message</textarea
+        <!-- Project Filter Buttons -->
+        <div
+          class="project-filters"
+          role="tablist"
+          aria-label="Project categories"
+        >
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            role="tab"
+            aria-selected="true"
           >
+            All Projects
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="web"
+            role="tab"
+            aria-selected="false"
+          >
+            Web Apps
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="mobile"
+            role="tab"
+            aria-selected="false"
+          >
+            Mobile Apps
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="design"
+            role="tab"
+            aria-selected="false"
+          >
+            UI/UX Design
+          </button>
         </div>
 
-        <button type="submit" class="btn-primary">Send Message</button>
-      </form>
-    </section>
-    <section id="footer">Made with ❤️ ACES</section>
+        <div class="projects-grid" role="tabpanel">
+          <article class="project-card" data-category="web">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="E-commerce platform homepage showing modern design"
+                width="300"
+                height="200"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View live demo of E-commerce Platform"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View source code of E-commerce Platform"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">E-commerce Platform</h3>
+              <p class="project-description">
+                A modern e-commerce platform built with React and Node.js,
+                featuring user authentication, shopping cart functionality, and
+                payment integration.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="mobile">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Task management mobile app interface"
+                width="300"
+                height="200"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View live demo of Task Manager App"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View source code of Task Manager App"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Task Manager App</h3>
+              <p class="project-description">
+                A productivity app that helps users organize their daily tasks
+                with features like drag-and-drop, categories, and deadline
+                notifications.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Redux</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Weather dashboard showing multiple city forecasts"
+                width="300"
+                height="200"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View live demo of Weather Dashboard"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View source code of Weather Dashboard"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Weather Dashboard</h3>
+              <p class="project-description">
+                An interactive weather dashboard that displays current
+                conditions and forecasts for multiple cities with beautiful data
+                visualizations.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">Chart.js</span>
+                <span class="tech-tag">Weather API</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="design">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Banking app UI design mockup"
+                width="300"
+                height="200"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View design mockup of Banking App UI"
+                    >View Design</a
+                  >
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View case study of Banking App UI"
+                    >Case Study</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Banking App UI</h3>
+              <p class="project-description">
+                A modern and secure banking application interface designed with
+                user experience and accessibility as top priorities.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">UI Design</span>
+                <span class="tech-tag">Prototyping</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Social media dashboard for content creators"
+                width="300"
+                height="200"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View live demo of Social Media Dashboard"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View source code of Social Media Dashboard"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Social Media Dashboard</h3>
+              <p class="project-description">
+                A comprehensive dashboard for social media managers to track
+                analytics, schedule posts, and manage multiple platforms from
+                one place.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">D3.js</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="design">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Restaurant website design concept"
+                width="300"
+                height="200"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View design concept of Restaurant Website"
+                    >View Design</a
+                  >
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="View prototype of Restaurant Website"
+                    >Prototype</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Restaurant Website</h3>
+              <p class="project-description">
+                An elegant website design for a fine dining restaurant featuring
+                online reservations, menu showcase, and immersive visual
+                storytelling.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Adobe XD</span>
+                <span class="tech-tag">Web Design</span>
+                <span class="tech-tag">Branding</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section id="about" class="about-section" aria-labelledby="about-title">
+        <div class="about-content">
+          <div class="about-text">
+            <h2 id="about-title" class="section-title">About Me</h2>
+            <p class="about-description">
+              I'm a passionate full-stack developer with over 3 years of
+              experience creating digital experiences that make a difference. I
+              love turning complex problems into simple, beautiful, and
+              intuitive solutions.
+            </p>
+            <p class="about-description">
+              When I'm not coding, you can find me exploring new technologies,
+              contributing to open-source projects, or sharing my knowledge
+              through technical writing and mentoring.
+            </p>
+
+            <!-- Skills Section -->
+            <div class="skills-section">
+              <h3 class="skills-title">Skills & Technologies</h3>
+              <div class="skills-grid">
+                <div class="skill-category">
+                  <h4>Frontend</h4>
+                  <ul class="skill-list">
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React & Vue.js</li>
+                    <li>TypeScript</li>
+                  </ul>
+                </div>
+                <div class="skill-category">
+                  <h4>Backend</h4>
+                  <ul class="skill-list">
+                    <li>Node.js & Express</li>
+                    <li>Python & Django</li>
+                    <li>REST & GraphQL APIs</li>
+                    <li>Database Design</li>
+                  </ul>
+                </div>
+                <div class="skill-category">
+                  <h4>Tools & Others</h4>
+                  <ul class="skill-list">
+                    <li>Git & GitHub</li>
+                    <li>Docker & AWS</li>
+                    <li>Figma & Adobe XD</li>
+                    <li>Agile Methodology</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-section">
+              <h3 class="social-title">Connect with me</h3>
+              <div class="social-links">
+                <a
+                  href="#"
+                  aria-label="Follow me on Twitter"
+                  class="social-link"
+                >
+                  <img src="./icons/twitter.svg" alt="Twitter icon" />
+                  <span>Twitter</span>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Follow me on Instagram"
+                  class="social-link"
+                >
+                  <img src="./icons/insta.svg" alt="Instagram icon" />
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Connect with me on Facebook"
+                  class="social-link"
+                >
+                  <img src="./icons/fb.svg" alt="Facebook icon" />
+                  <span>Facebook</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image-container">
+          <img
+            src="image.png"
+            alt="Sarah Johnson working at desk with laptop and coffee"
+            class="about-image"
+            width="400"
+            height="400"
+          />
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section
+        id="contact"
+        class="contact-section"
+        aria-labelledby="contact-title"
+      >
+        <div class="section-header">
+          <h2 id="contact-title" class="section-title">Let's Work Together</h2>
+          <p class="section-subtitle">
+            Have a project in mind? I'd love to hear about it. Let's discuss how
+            we can bring your ideas to life.
+          </p>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <h3>Get in Touch</h3>
+              <p>
+                I'm always open to discussing new opportunities and interesting
+                projects.
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h4>Email</h4>
+              <p>
+                <a href="mailto:sarah.johnson@example.com"
+                  >sarah.johnson@example.com</a
+                >
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h4>Phone</h4>
+              <p><a href="tel:+1234567890">+1 (234) 567-8900</a></p>
+            </div>
+
+            <div class="contact-item">
+              <h4>Location</h4>
+              <p>San Francisco, CA</p>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="form-input"
+                placeholder="Enter your full name"
+                required
+                aria-describedby="name-error"
+              />
+              <span class="error-message" id="name-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-input"
+                placeholder="Enter your email address"
+                required
+                aria-describedby="email-error"
+              />
+              <span class="error-message" id="email-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                class="form-input"
+                placeholder="What's this about?"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message *</label>
+              <textarea
+                name="message"
+                id="message"
+                class="form-textarea"
+                rows="5"
+                placeholder="Tell me about your project..."
+                required
+                aria-describedby="message-error"
+              ></textarea>
+              <span
+                class="error-message"
+                id="message-error"
+                role="alert"
+              ></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading" style="display: none">Sending...</span>
+            </button>
+
+            <div
+              class="form-success"
+              id="form-success"
+              style="display: none"
+              role="alert"
+            >
+              <p>✅ Thank you! Your message has been sent successfully.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3 class="footer-logo">Portfolio<span class="accent">.</span></h3>
+          <p>Building the future, one line of code at a time.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"
+            ><img src="./icons/twitter.svg" alt="Twitter"
+          /></a>
+          <a href="#" aria-label="Instagram"
+            ><img src="./icons/insta.svg" alt="Instagram"
+          /></a>
+          <a href="#" aria-label="Facebook"
+            ><img src="./icons/fb.svg" alt="Facebook"
+          /></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Portfolio Template. Made with ❤️ by ACES Web Development
+          Training
+        </p>
+      </div>
+    </footer>
+
     <script src="scripts.js"></script>
   </body>
 </html>
