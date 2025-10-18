@@ -72,8 +72,8 @@ This project is designed specifically for teaching web development fundamentals:
 1. **Clone or Download**
 
    ```bash
-   git clone https://github.com/adhikareeprayush/WebDevTraining-081.git
-   cd WebDevTraining-081
+   git clone https://github.com/adhikareeprayush/Modern-Portfolio-Website.git
+   cd Modern-Portfolio-Website
    ```
 
 2. **Open in Browser**
@@ -100,7 +100,7 @@ This project is designed specifically for teaching web development fundamentals:
 ### Project Structure
 
 ```
-WebDevTraining-081/
+Modern-Portfolio-Website/
 ├── index.html          # Main HTML file
 ├── style.css           # Complete CSS styles
 ├── scripts.js          # JavaScript functionality
