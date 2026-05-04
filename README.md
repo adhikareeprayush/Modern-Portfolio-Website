@@ -2,6 +2,9 @@
 
 A modern, responsive portfolio website template for developers. Built with clean HTML, CSS, and JavaScript to help you ship a polished personal site quickly.
 
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/20eb4fda-4e2f-4d83-a4e2-1ed93f4d28e6" />
+
+
 ## 🎯 Project Overview
 
 This template provides a production-ready portfolio layout with configurable content, multiple themes, and accessible UI patterns.
