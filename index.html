@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,18 +11,19 @@
       name="keywords"
       content="portfolio, web development, HTML, CSS, JavaScript, responsive design"
     />
-    <meta name="author" content="ACES Web Development Training" />
+    <meta name="author" content="Prayush Adhikari" />
     <title>Portfolio Template - Modern Web Developer</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body>
+  <body data-theme="system-light">
     <!-- Main Navigation Header -->
     <header>
       <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-brand">
-          <h1 class="logo">Portfolio<span class="accent">.</span></h1>
+          <h1 class="logo" data-site="brand.name">Noa Studio</h1>
         </div>
         <ul class="nav-menu" role="menubar">
           <li role="none">
@@ -39,8 +40,8 @@
             >
           </li>
           <li role="none">
-            <a href="#about" role="menuitem" aria-label="Go to about section"
-              >About</a
+            <a href="#blog" role="menuitem" aria-label="Go to blog section"
+              >Blog</a
             >
           </li>
           <li role="none">
@@ -52,14 +53,97 @@
             >
           </li>
         </ul>
-        <button
-          class="hamburger"
-          aria-label="Toggle mobile menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <img src="./icons/hamburger.svg" alt="Menu icon" />
-        </button>
+        <div class="nav-actions">
+          <div class="theme-select" data-theme-select>
+            <span id="theme-label" class="sr-only">Theme</span>
+            <button
+              class="theme-select__button"
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-labelledby="theme-label theme-current"
+            >
+              <span id="theme-current" class="theme-select__current"
+                >System Light</span
+              >
+            </button>
+            <div class="theme-select__menu" role="listbox" aria-label="Themes">
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="system-light"
+                aria-selected="true"
+              >
+                System Light
+              </button>
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="system-dark"
+              >
+                System Dark
+              </button>
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="sand"
+              >
+                Sand
+              </button>
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="ocean"
+              >
+                Ocean
+              </button>
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="forest"
+              >
+                Forest
+              </button>
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="dusk"
+              >
+                Dusk
+              </button>
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="mono"
+              >
+                Mono
+              </button>
+              <button
+                class="theme-select__option"
+                type="button"
+                role="option"
+                data-value="retro"
+              >
+                Retro
+              </button>
+            </div>
+          </div>
+          <button
+            class="hamburger"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <img src="./icons/hamburger.svg" alt="Menu icon" />
+          </button>
+        </div>
       </nav>
     </header>
     <!-- Mobile Navigation Sidebar -->
@@ -83,7 +167,7 @@
             <a href="#projects" role="menuitem" tabindex="-1">Projects</a>
           </li>
           <li role="none">
-            <a href="#about" role="menuitem" tabindex="-1">About</a>
+            <a href="#blog" role="menuitem" tabindex="-1">Blog</a>
           </li>
           <li role="none">
             <a href="#contact" role="menuitem" tabindex="-1">Contact</a>
@@ -95,34 +179,28 @@
     <main>
       <section id="hero" class="hero-section" aria-labelledby="hero-title">
         <div class="hero-content">
-          <div class="hero-text">
-            <h2 id="hero-title" class="hero-name">
-              Hi, I'm <span class="name-highlight">Sarah Johnson</span>
-            </h2>
-            <p class="hero-subtitle">Full Stack Developer & UI/UX Designer</p>
-            <p class="hero-description">
-              Passionate about creating beautiful, functional, and user-centered
-              digital experiences. I specialize in modern web technologies and
-              love bringing ideas to life through code.
-            </p>
-            <div class="hero-buttons">
-              <button class="btn btn-primary" aria-label="Download my resume">
-                <span>Download Resume</span>
-              </button>
-              <button class="btn btn-secondary" aria-label="View my projects">
-                <span>View Projects</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="hero-image-container">
           <img
-            src="image.png"
-            class="hero-image"
-            alt="Portrait of Sarah Johnson, Full Stack Developer"
-            width="500"
-            height="500"
+            class="hero-avatar"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80"
+            alt="Portrait of Noa"
+            data-site="hero.avatar"
           />
+          <p class="eyebrow" data-site="hero.eyebrow">
+            Product Designer + Front-End Engineer
+          </p>
+          <h2 id="hero-title" class="hero-title">
+            <span data-site="hero.title"
+              >Calm product design for teams who move with intention.</span
+            >
+          </h2>
+          <p class="hero-subtitle" data-site="hero.subtitle">
+            Strategy, UI, and systems that keep your product simple, elegant,
+            and shippable.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+          </div>
         </div>
       </section>
       <!-- Projects Section -->
@@ -132,385 +210,292 @@
         aria-labelledby="projects-title"
       >
         <div class="section-header">
-          <h2 id="projects-title" class="section-title">Featured Projects</h2>
+          <p class="section-kicker">Selected Work</p>
+          <h2 id="projects-title" class="section-title">Projects</h2>
           <p class="section-subtitle">
-            Here are some of my recent projects that showcase my skills in web
-            development and design.
+            A focused mix of product design, front-end engineering, and brand
+            systems for teams that move fast.
           </p>
         </div>
+        <div class="projects-grid" role="list" data-list="projects">
+          <article class="project-card" role="listitem">
+            <div class="project-info">
+              <p class="project-label">Product</p>
+              <h3 class="project-title">Harbor Climate</h3>
+              <p class="project-description">
+                A measurement platform that turns emissions data into action
+                with guided reports and milestone tracking.
+              </p>
+              <div class="project-meta">
+                <span class="tag">Design System</span>
+                <span class="tag">React</span>
+                <span class="tag">Data Viz</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="text-link">View case study</a>
+            </div>
+          </article>
 
-        <!-- Project Filter Buttons -->
-        <div
-          class="project-filters"
-          role="tablist"
-          aria-label="Project categories"
-        >
-          <button
-            class="filter-btn active"
-            data-filter="all"
-            role="tab"
-            aria-selected="true"
-          >
-            All Projects
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="web"
-            role="tab"
-            aria-selected="false"
-          >
-            Web Apps
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="mobile"
-            role="tab"
-            aria-selected="false"
-          >
-            Mobile Apps
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="design"
-            role="tab"
-            aria-selected="false"
-          >
-            UI/UX Design
-          </button>
+          <article class="project-card" role="listitem">
+            <div class="project-info">
+              <p class="project-label">Brand + Web</p>
+              <h3 class="project-title">Northwind Studio</h3>
+              <p class="project-description">
+                A storefront revamp for a boutique interior brand featuring
+                custom typography and a modular CMS.
+              </p>
+              <div class="project-meta">
+                <span class="tag">Webflow</span>
+                <span class="tag">Brand Kit</span>
+                <span class="tag">E-commerce</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="text-link">View storefront</a>
+            </div>
+          </article>
+
+          <article class="project-card" role="listitem">
+            <div class="project-info">
+              <p class="project-label">Product</p>
+              <h3 class="project-title">Lumen Health</h3>
+              <p class="project-description">
+                A scheduling and patient portal experience designed to reduce
+                drop-offs and streamline intake.
+              </p>
+              <div class="project-meta">
+                <span class="tag">UX Research</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Accessibility</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="text-link">See prototype</a>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <div class="projects-grid" role="tabpanel">
-          <article class="project-card" data-category="web">
-            <div class="project-image">
+      <section
+        id="services"
+        class="services-section"
+        aria-labelledby="services-title"
+      >
+        <div class="section-header">
+          <p class="section-kicker">Services</p>
+          <h2 id="services-title" class="section-title">What I deliver</h2>
+          <p class="section-subtitle">
+            Flexible engagements built around the work that matters most.
+          </p>
+        </div>
+        <div class="services-grid" role="list" data-list="services">
+          <article class="service-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80"
+              alt="Team reviewing product strategy documents"
+            />
+            <h3>Product strategy</h3>
+            <p>
+              Research, journey mapping, and feature prioritization to align
+              product decisions with business goals.
+            </p>
+          </article>
+          <article class="service-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
+              alt="Analytics dashboard on a laptop screen"
+            />
+            <h3>Design systems</h3>
+            <p>
+              Tokenized components, documentation, and governance that teams can
+              actually maintain.
+            </p>
+          </article>
+          <article class="service-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=900&q=80"
+              alt="Collaborative design workshop"
+            />
+            <h3>Product design</h3>
+            <p>
+              High-fidelity UI, prototypes, and handoff that make engineering
+              handoffs painless.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="testimonials"
+        class="testimonials-section"
+        aria-labelledby="testimonials-title"
+      >
+        <div class="section-header">
+          <p class="section-kicker">Testimonials</p>
+          <h2 id="testimonials-title" class="section-title">Partner notes</h2>
+          <p class="section-subtitle">
+            Teams share what it felt like to build together.
+          </p>
+        </div>
+        <div class="testimonials-grid" role="list" data-list="testimonials">
+          <article class="testimonial-card" role="listitem">
+            <p>
+              “Noa brought clarity to a chaotic roadmap and left us with a
+              system we can scale.”
+            </p>
+            <div class="testimonial-footer">
               <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="E-commerce platform homepage showing modern design"
-                width="300"
-                height="200"
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80"
+                alt="Portrait of Daniel Reyes"
               />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View live demo of E-commerce Platform"
-                    >Live Demo</a
-                  >
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View source code of E-commerce Platform"
-                    >GitHub</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">E-commerce Platform</h3>
-              <p class="project-description">
-                A modern e-commerce platform built with React and Node.js,
-                featuring user authentication, shopping cart functionality, and
-                payment integration.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MongoDB</span>
+              <div>
+                <h4>Daniel Reyes</h4>
+                <span>VP Product, Lumen Health</span>
               </div>
             </div>
           </article>
-
-          <article class="project-card" data-category="mobile">
-            <div class="project-image">
+          <article class="testimonial-card" role="listitem">
+            <p>
+              “Every screen was intentional. The handoff was the cleanest we
+              have ever received.”
+            </p>
+            <div class="testimonial-footer">
               <img
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Task management mobile app interface"
-                width="300"
-                height="200"
+                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80"
+                alt="Portrait of Priya Kapoor"
               />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View live demo of Task Manager App"
-                    >Live Demo</a
-                  >
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View source code of Task Manager App"
-                    >GitHub</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Task Manager App</h3>
-              <p class="project-description">
-                A productivity app that helps users organize their daily tasks
-                with features like drag-and-drop, categories, and deadline
-                notifications.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">React Native</span>
-                <span class="tech-tag">Firebase</span>
-                <span class="tech-tag">Redux</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="web">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Weather dashboard showing multiple city forecasts"
-                width="300"
-                height="200"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View live demo of Weather Dashboard"
-                    >Live Demo</a
-                  >
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View source code of Weather Dashboard"
-                    >GitHub</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Weather Dashboard</h3>
-              <p class="project-description">
-                An interactive weather dashboard that displays current
-                conditions and forecasts for multiple cities with beautiful data
-                visualizations.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">Chart.js</span>
-                <span class="tech-tag">Weather API</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="design">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Banking app UI design mockup"
-                width="300"
-                height="200"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View design mockup of Banking App UI"
-                    >View Design</a
-                  >
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View case study of Banking App UI"
-                    >Case Study</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Banking App UI</h3>
-              <p class="project-description">
-                A modern and secure banking application interface designed with
-                user experience and accessibility as top priorities.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Figma</span>
-                <span class="tech-tag">UI Design</span>
-                <span class="tech-tag">Prototyping</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="web">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Social media dashboard for content creators"
-                width="300"
-                height="200"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View live demo of Social Media Dashboard"
-                    >Live Demo</a
-                  >
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View source code of Social Media Dashboard"
-                    >GitHub</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Social Media Dashboard</h3>
-              <p class="project-description">
-                A comprehensive dashboard for social media managers to track
-                analytics, schedule posts, and manage multiple platforms from
-                one place.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">D3.js</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="design">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Restaurant website design concept"
-                width="300"
-                height="200"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View design concept of Restaurant Website"
-                    >View Design</a
-                  >
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="View prototype of Restaurant Website"
-                    >Prototype</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Restaurant Website</h3>
-              <p class="project-description">
-                An elegant website design for a fine dining restaurant featuring
-                online reservations, menu showcase, and immersive visual
-                storytelling.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Adobe XD</span>
-                <span class="tech-tag">Web Design</span>
-                <span class="tech-tag">Branding</span>
+              <div>
+                <h4>Priya Kapoor</h4>
+                <span>Design Lead, Northwind</span>
               </div>
             </div>
           </article>
         </div>
       </section>
-      <!-- About Section -->
-      <section id="about" class="about-section" aria-labelledby="about-title">
-        <div class="about-content">
-          <div class="about-text">
-            <h2 id="about-title" class="section-title">About Me</h2>
-            <p class="about-description">
-              I'm a passionate full-stack developer with over 3 years of
-              experience creating digital experiences that make a difference. I
-              love turning complex problems into simple, beautiful, and
-              intuitive solutions.
-            </p>
-            <p class="about-description">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing my knowledge
-              through technical writing and mentoring.
-            </p>
 
-            <!-- Skills Section -->
-            <div class="skills-section">
-              <h3 class="skills-title">Skills & Technologies</h3>
-              <div class="skills-grid">
-                <div class="skill-category">
-                  <h4>Frontend</h4>
-                  <ul class="skill-list">
-                    <li>HTML5 & CSS3</li>
-                    <li>JavaScript (ES6+)</li>
-                    <li>React & Vue.js</li>
-                    <li>TypeScript</li>
-                  </ul>
-                </div>
-                <div class="skill-category">
-                  <h4>Backend</h4>
-                  <ul class="skill-list">
-                    <li>Node.js & Express</li>
-                    <li>Python & Django</li>
-                    <li>REST & GraphQL APIs</li>
-                    <li>Database Design</li>
-                  </ul>
-                </div>
-                <div class="skill-category">
-                  <h4>Tools & Others</h4>
-                  <ul class="skill-list">
-                    <li>Git & GitHub</li>
-                    <li>Docker & AWS</li>
-                    <li>Figma & Adobe XD</li>
-                    <li>Agile Methodology</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Social Links -->
-            <div class="social-section">
-              <h3 class="social-title">Connect with me</h3>
-              <div class="social-links">
-                <a
-                  href="#"
-                  aria-label="Follow me on Twitter"
-                  class="social-link"
-                >
-                  <img src="./icons/twitter.svg" alt="Twitter icon" />
-                  <span>Twitter</span>
-                </a>
-                <a
-                  href="#"
-                  aria-label="Follow me on Instagram"
-                  class="social-link"
-                >
-                  <img src="./icons/insta.svg" alt="Instagram icon" />
-                  <span>Instagram</span>
-                </a>
-                <a
-                  href="#"
-                  aria-label="Connect with me on Facebook"
-                  class="social-link"
-                >
-                  <img src="./icons/fb.svg" alt="Facebook icon" />
-                  <span>Facebook</span>
-                </a>
-              </div>
-            </div>
+      <section
+        id="clients"
+        class="clients-section"
+        aria-labelledby="clients-title"
+      >
+        <div class="section-header">
+          <p class="section-kicker">Clients</p>
+          <h2 id="clients-title" class="section-title">Trusted by teams</h2>
+          <p class="section-subtitle">
+            A mix of startups and established studios.
+          </p>
+        </div>
+        <div class="clients-grid" role="list" data-list="clients">
+          <div class="client-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=300&q=80"
+              alt="Harbor client"
+            />
+            <span>Harbor</span>
+          </div>
+          <div class="client-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=80"
+              alt="Northwind client"
+            />
+            <span>Northwind</span>
+          </div>
+          <div class="client-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=300&q=80"
+              alt="Lumen client"
+            />
+            <span>Lumen</span>
+          </div>
+          <div class="client-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=300&q=80"
+              alt="Solstice client"
+            />
+            <span>Solstice</span>
+          </div>
+          <div class="client-card" role="listitem">
+            <img
+              src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=300&q=80"
+              alt="Aurora client"
+            />
+            <span>Aurora</span>
           </div>
         </div>
-        <div class="about-image-container">
-          <img
-            src="image.png"
-            alt="Sarah Johnson working at desk with laptop and coffee"
-            class="about-image"
-            width="400"
-            height="400"
-          />
+      </section>
+
+      <section
+        id="newsletter"
+        class="newsletter-section"
+        aria-labelledby="newsletter-title"
+      >
+        <div class="newsletter-card">
+          <div>
+            <p class="section-kicker">Newsletter</p>
+            <h2 id="newsletter-title" class="section-title">
+              Monthly notes on design systems and product strategy.
+            </h2>
+            <p class="section-subtitle">
+              Short, practical updates. No spam, unsubscribe anytime.
+            </p>
+          </div>
+          <form class="newsletter-form">
+            <label class="form-label" for="newsletter-email">Email</label>
+            <input
+              class="form-input"
+              type="email"
+              id="newsletter-email"
+              placeholder="you@example.com"
+              required
+            />
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog" class="blog-section" aria-labelledby="blog-title">
+        <div class="section-header">
+          <p class="section-kicker">Writing</p>
+          <h2 id="blog-title" class="section-title">Blog</h2>
+          <p class="section-subtitle">
+            Notes on building calm products, design systems, and sustainable
+            creative practice.
+          </p>
+        </div>
+
+        <div class="blog-grid" role="list" data-list="blog">
+          <article class="blog-card" role="listitem">
+            <p class="blog-meta">May 4, 2026 · Product</p>
+            <h3 class="blog-title">
+              The quiet power of frictionless onboarding
+            </h3>
+            <p class="blog-excerpt">
+              How to keep product tours short, focused, and honest without
+              sacrificing clarity.
+            </p>
+            <a href="#" class="text-link">Read article</a>
+          </article>
+
+          <article class="blog-card" role="listitem">
+            <p class="blog-meta">Apr 19, 2026 · Design Systems</p>
+            <h3 class="blog-title">Design tokens that teams actually use</h3>
+            <p class="blog-excerpt">
+              A practical workflow for naming, documenting, and shipping tokens
+              across design and engineering.
+            </p>
+            <a href="#" class="text-link">Read article</a>
+          </article>
+
+          <article class="blog-card" role="listitem">
+            <p class="blog-meta">Mar 29, 2026 · Craft</p>
+            <h3 class="blog-title">Minimal pages that still feel alive</h3>
+            <p class="blog-excerpt">
+              Strategies for depth, texture, and motion without visual noise.
+            </p>
+            <a href="#" class="text-link">Read article</a>
+          </article>
         </div>
       </section>
       <!-- Contact Section -->
@@ -520,40 +505,108 @@
         aria-labelledby="contact-title"
       >
         <div class="section-header">
-          <h2 id="contact-title" class="section-title">Let's Work Together</h2>
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title" class="section-title">Let's work together</h2>
           <p class="section-subtitle">
-            Have a project in mind? I'd love to hear about it. Let's discuss how
-            we can bring your ideas to life.
+            Tell me about your product goals. I reply within two business days
+            with next steps.
           </p>
         </div>
 
         <div class="contact-content">
           <div class="contact-info">
-            <div class="contact-item">
-              <h3>Get in Touch</h3>
-              <p>
-                I'm always open to discussing new opportunities and interesting
-                projects.
+            <div class="contact-card">
+              <h3>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4 7h16v10H4z"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                    <path
+                      d="M7 4h10M8 7V4m8 3V4"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                Studio availability
+              </h3>
+              <p data-site="contact.availability">
+                Currently taking 2 projects for May to July 2026. Design sprints
+                and long-term partnerships available.
               </p>
             </div>
-
-            <div class="contact-item">
-              <h4>Email</h4>
+            <div class="contact-card">
+              <h4>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4 6h16v12H4z"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                    <path
+                      d="m4 7 8 6 8-6"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                Email
+              </h4>
               <p>
-                <a href="mailto:sarah.johnson@example.com"
-                  >sarah.johnson@example.com</a
+                <a href="mailto:hello@noastudio.com" data-site="contact.email"
+                  >hello@noastudio.com</a
                 >
               </p>
             </div>
-
-            <div class="contact-item">
-              <h4>Phone</h4>
-              <p><a href="tel:+1234567890">+1 (234) 567-8900</a></p>
+            <div class="contact-card">
+              <h4>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M6.5 4.5h3l1.2 4-2.2 1.3a12 12 0 0 0 5.7 5.7l1.3-2.2 4 1.2v3c0 1-1 2-2 2A14 14 0 0 1 4.5 8.5c0-1 1-2 2-2Z"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                Phone
+              </h4>
+              <p>
+                <a href="tel:+15125550112" data-site="contact.phone"
+                  >+1 (512) 555-0112</a
+                >
+              </p>
             </div>
-
-            <div class="contact-item">
-              <h4>Location</h4>
-              <p>San Francisco, CA</p>
+            <div class="contact-card">
+              <h4>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 21s6-6.2 6-11a6 6 0 1 0-12 0c0 4.8 6 11 6 11Z"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="2.5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                  </svg>
+                </span>
+                Location
+              </h4>
+              <p data-site="contact.location">Austin, TX</p>
             </div>
           </div>
 
@@ -637,13 +690,15 @@
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-info">
-          <h3 class="footer-logo">Portfolio<span class="accent">.</span></h3>
-          <p>Building the future, one line of code at a time.</p>
+          <h3 class="footer-logo" data-site="brand.name">Noa Studio</h3>
+          <p data-site="footer.tagline">
+            Calm, durable digital products for modern teams.
+          </p>
         </div>
         <div class="footer-links">
           <a href="#hero">Home</a>
           <a href="#projects">Projects</a>
-          <a href="#about">About</a>
+          <a href="#blog">Blog</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="footer-social">
@@ -659,10 +714,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>
-          &copy; 2025 Portfolio Template. Made with ❤️ by ACES Web Development
-          Training
-        </p>
+        <p>&copy; 2026 Noa Studio. All rights reserved.</p>
       </div>
     </footer>
 

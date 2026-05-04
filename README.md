@@ -1,19 +1,20 @@
-# Portfolio Website - Web Development Training Project
+# Portfolio Website - Template
 
-A modern, responsive portfolio website built for educational purposes to teach HTML, CSS, and JavaScript fundamentals. This project demonstrates best practices in web development, accessibility, and modern design patterns.
+A modern, responsive portfolio website template for developers. Built with clean HTML, CSS, and JavaScript to help you ship a polished personal site quickly.
 
 ## 🎯 Project Overview
 
-This portfolio website serves as a comprehensive learning resource for web development students. It showcases modern web development techniques while maintaining clean, educational code that students can understand and learn from.
+This template provides a production-ready portfolio layout with configurable content, multiple themes, and accessible UI patterns.
 
 ### ✨ Key Features
 
-- **🎨 Modern Design**: Clean, professional design with dark theme and accent colors
+- **🎨 Theme-ready Design**: Multiple built-in themes with a custom theme switcher
 - **📱 Fully Responsive**: Mobile-first design that works on all devices
 - **♿ Accessible**: WCAG 2.1 compliant with proper ARIA labels and keyboard navigation
 - **⚡ Performance Optimized**: Fast loading with optimized CSS and JavaScript
 - **🎭 Interactive Elements**: Smooth animations, hover effects, and micro-interactions
 - **📝 Form Validation**: Real-time form validation with user-friendly error messages
+- **🧩 JSON-driven Content**: Update text and lists from `data/content.json`
 - **🎪 Project Filtering**: Interactive project gallery with category filtering
 - **🔄 Smooth Scrolling**: Navigation with smooth scroll and active section highlighting
 - **📲 Mobile Navigation**: Accessible hamburger menu with proper focus management
@@ -26,38 +27,12 @@ This portfolio website serves as a comprehensive learning resource for web devel
 - **Web APIs**: Intersection Observer for scroll animations
 - **Google Fonts**: Inter and JetBrains Mono for typography
 
-## 📚 Educational Value
+## ✅ What You Get
 
-This project is designed specifically for teaching web development fundamentals:
-
-### HTML Concepts Demonstrated
-
-- Semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
-- Proper heading hierarchy (H1-H6)
-- Accessible form markup with labels and ARIA attributes
-- Image optimization with proper alt text and dimensions
-- Document structure and meta tags for SEO
-
-### CSS Concepts Demonstrated
-
-- CSS Custom Properties (variables) for maintainable code
-- CSS Grid and Flexbox for modern layouts
-- Mobile-first responsive design with media queries
-- CSS animations and transitions for smooth interactions
-- Typography scale and color systems
-- Component-based styling architecture
-- Performance optimization techniques
-
-### JavaScript Concepts Demonstrated
-
-- ES6+ syntax (classes, arrow functions, destructuring)
-- DOM manipulation and event handling
-- Form validation with regex patterns
-- Asynchronous JavaScript with async/await
-- Modern web APIs (Intersection Observer)
-- Accessibility in JavaScript (ARIA management, focus control)
-- Performance optimization (debouncing, throttling)
-- Error handling and defensive programming
+- Production-ready HTML structure
+- Responsive layout and theme support
+- JSON-driven content for fast customization
+- Accessible navigation and forms
 
 ## 🚀 Getting Started
 
@@ -78,24 +53,24 @@ This project is designed specifically for teaching web development fundamentals:
 
 2. **Open in Browser**
 
-   - Simply open `index.html` in your web browser
-   - Or use a local server (recommended):
+- Use a local server (required for JSON content loading):
 
-   ```bash
-   # Using Python
-   python -m http.server 8000
+```bash
+# Using Python
+python -m http.server 8000
 
-   # Using Node.js
-   npx http-server
+# Using Node.js
+npx http-server
 
-   # Using VS Code Live Server extension
-   Right-click index.html → "Open with Live Server"
-   ```
+# Using VS Code Live Server extension
+Right-click index.html → "Open with Live Server"
+```
 
-3. **Start Learning**
-   - Explore the code structure
-   - Read the documentation in the `/docs` folder
-   - Experiment with modifications
+3. **Start Customizing**
+
+- Update `data/content.json`
+- Swap images and links
+- Adjust themes in `style.css`
 
 ### Project Structure
 
@@ -104,8 +79,11 @@ Modern-Portfolio-Website/
 ├── index.html          # Main HTML file
 ├── style.css           # Complete CSS styles
 ├── scripts.js          # JavaScript functionality
+├── data/
+│   └── content.json     # Configurable content data
 ├── image.png           # Sample image
 ├── icons/              # SVG icons
+│   ├── favicon.svg
 │   ├── close.svg
 │   ├── fb.svg
 │   ├── hamburger.svg
@@ -114,49 +92,52 @@ Modern-Portfolio-Website/
 └── README.md           # This file
 ```
 
-## 📖 Learning Path
+## 🔧 Configuration (JSON Content)
 
-### For Beginners (Start Here)
+Edit `data/content.json` to customize the template without touching HTML. This
+file controls the hero, projects, services, testimonials, clients, blog, and
+contact details.
 
-1. **Examine HTML Structure** (`index.html`)
+Example:
 
-   - Study semantic HTML5 elements
-   - Understand document structure
-   - Learn about accessibility attributes
+```json
+{
+  "brand": { "name": "Noa Studio" },
+  "hero": {
+    "eyebrow": "Product Designer + Front-End Engineer",
+    "title": "Calm product design for teams who move with intention.",
+    "subtitle": "Strategy, UI, and systems that keep your product simple, elegant, and shippable.",
+    "avatar": {
+      "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80",
+      "alt": "Portrait of Noa"
+    }
+  }
+}
+```
 
-2. **Explore CSS Styling** (`style.css`)
+If the JSON file is missing or invalid, the HTML fallback content is shown.
 
-   - Discover modern layout techniques
-   - Learn about CSS custom properties
-   - Understand responsive design patterns
+## 🎨 Themes
 
-3. **Understand JavaScript** (`scripts.js`)
-   - See modern JavaScript patterns
-   - Learn DOM manipulation techniques
-   - Understand event handling
+Use the theme switcher in the header to preview built-in themes:
 
-### For Intermediate Students
+- System Light
+- System Dark
+- Sand
+- Ocean
+- Forest
+- Dusk
+- Mono
+- Retro
 
-1. **Experiment and Modify**
+You can customize theme variables in `style.css` under the `body[data-theme="..."]`
+blocks.
 
-   - Change colors and typography
-   - Add new sections or features
-   - Implement additional interactions
+## 🧩 Customization Workflow
 
-2. **Build Your Own Version**
-   - Use this as a template
-   - Customize with your own content
-   - Add personal branding and style
-
-## 🎓 Learning Objectives
-
-By studying and working with this project, students will learn:
-
-- **HTML**: Semantic markup, accessibility, and document structure
-- **CSS**: Modern layout, responsive design, and animation techniques
-- **JavaScript**: DOM manipulation, event handling, and modern ES6+ patterns
-- **Web Standards**: Best practices for performance, accessibility, and maintainability
-- **Tools**: Browser developer tools, validation, and testing techniques
+1. Update content in `data/content.json`
+2. Replace images and links
+3. Adjust themes in `style.css`
 
 ## 🔍 Code Highlights
 
@@ -283,7 +264,7 @@ The website uses modern web standards with graceful degradation for older browse
 
 ## 🤝 Contributing
 
-This is an educational project, and contributions are welcome! If you're a student:
+Contributions are welcome:
 
 1. **Fork the repository**
 2. **Make your improvements**
@@ -300,27 +281,18 @@ Types of contributions welcome:
 
 ## 📄 License
 
-This project is created for educational purposes under the ACES Web Development Training program. Feel free to use it for learning, teaching, and personal projects.
+Template created by Prayush Adhikari. Feel free to use it for learning, teaching, and personal projects.
 
 ## 🙏 Acknowledgments
 
-- **ACES Team**: For providing the educational framework
 - **Web Development Community**: For the wealth of resources and best practices
 - **Students**: Who will learn from and improve this project
 - **Open Source**: For the tools and resources that make projects like this possible
 
 ## 📞 Support and Questions
 
-If you're using this project for learning and have questions:
-
-1. **Review the Code Comments**: Extensive comments explain functionality
-2. **Use Browser Developer Tools**: Inspect and experiment
-3. **Online Resources**: Refer to MDN Web Docs and other learning resources
+If you need help integrating this template, open an issue or reach out.
 
 ---
 
-**Happy coding and learning!** 🎉
-
-This project demonstrates that modern web development can be both educational and professional. Use it as a foundation for your own learning journey in web development.
-
-_Made with ❤️ for web development education by the ACES team_
+_Template created by Prayush Adhikari_

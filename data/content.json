@@ -1,0 +1,167 @@
+{
+  "brand": {
+    "name": "Noa Studio"
+  },
+  "hero": {
+    "eyebrow": "Product Designer + Front-End Engineer",
+    "title": "Calm product design for teams who move with intention.",
+    "subtitle": "Strategy, UI, and systems that keep your product simple, elegant, and shippable.",
+    "avatar": {
+      "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80",
+      "alt": "Portrait of Noa"
+    }
+  },
+  "projects": [
+    {
+      "label": "Product",
+      "title": "Harbor Climate",
+      "description": "A measurement platform that turns emissions data into action with guided reports and milestone tracking.",
+      "tags": ["Design System", "React", "Data Viz"],
+      "link": {
+        "label": "View case study",
+        "href": "#"
+      }
+    },
+    {
+      "label": "Brand + Web",
+      "title": "Northwind Studio",
+      "description": "A storefront revamp for a boutique interior brand featuring custom typography and a modular CMS.",
+      "tags": ["Webflow", "Brand Kit", "E-commerce"],
+      "link": {
+        "label": "View storefront",
+        "href": "#"
+      }
+    },
+    {
+      "label": "Product",
+      "title": "Lumen Health",
+      "description": "A scheduling and patient portal experience designed to reduce drop-offs and streamline intake.",
+      "tags": ["UX Research", "Next.js", "Accessibility"],
+      "link": {
+        "label": "See prototype",
+        "href": "#"
+      }
+    }
+  ],
+  "services": [
+    {
+      "title": "Product strategy",
+      "description": "Research, journey mapping, and feature prioritization to align product decisions with business goals.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+        "alt": "Team reviewing product strategy documents"
+      }
+    },
+    {
+      "title": "Design systems",
+      "description": "Tokenized components, documentation, and governance that teams can actually maintain.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Analytics dashboard on a laptop screen"
+      }
+    },
+    {
+      "title": "Product design",
+      "description": "High-fidelity UI, prototypes, and handoff that make engineering handoffs painless.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=900&q=80",
+        "alt": "Collaborative design workshop"
+      }
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Noa brought clarity to a chaotic roadmap and left us with a system we can scale.",
+      "name": "Daniel Reyes",
+      "role": "VP Product, Lumen Health",
+      "avatar": {
+        "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
+        "alt": "Portrait of Daniel Reyes"
+      }
+    },
+    {
+      "quote": "Every screen was intentional. The handoff was the cleanest we have ever received.",
+      "name": "Priya Kapoor",
+      "role": "Design Lead, Northwind",
+      "avatar": {
+        "src": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80",
+        "alt": "Portrait of Priya Kapoor"
+      }
+    }
+  ],
+  "clients": [
+    {
+      "name": "Harbor",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=300&q=80",
+        "alt": "Harbor client"
+      }
+    },
+    {
+      "name": "Northwind",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=80",
+        "alt": "Northwind client"
+      }
+    },
+    {
+      "name": "Lumen",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=300&q=80",
+        "alt": "Lumen client"
+      }
+    },
+    {
+      "name": "Solstice",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=300&q=80",
+        "alt": "Solstice client"
+      }
+    },
+    {
+      "name": "Aurora",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=300&q=80",
+        "alt": "Aurora client"
+      }
+    }
+  ],
+  "blog": [
+    {
+      "meta": "May 4, 2026 · Product",
+      "title": "The quiet power of frictionless onboarding",
+      "excerpt": "How to keep product tours short, focused, and honest without sacrificing clarity.",
+      "link": {
+        "label": "Read article",
+        "href": "#"
+      }
+    },
+    {
+      "meta": "Apr 19, 2026 · Design Systems",
+      "title": "Design tokens that teams actually use",
+      "excerpt": "A practical workflow for naming, documenting, and shipping tokens across design and engineering.",
+      "link": {
+        "label": "Read article",
+        "href": "#"
+      }
+    },
+    {
+      "meta": "Mar 29, 2026 · Craft",
+      "title": "Minimal pages that still feel alive",
+      "excerpt": "Strategies for depth, texture, and motion without visual noise.",
+      "link": {
+        "label": "Read article",
+        "href": "#"
+      }
+    }
+  ],
+  "contact": {
+    "availability": "Currently taking 2 projects for May to July 2026. Design sprints and long-term partnerships available.",
+    "email": "hello@noastudio.com",
+    "phone": "+1 (512) 555-0112",
+    "location": "Austin, TX"
+  },
+  "footer": {
+    "tagline": "Calm, durable digital products for modern teams."
+  }
+}

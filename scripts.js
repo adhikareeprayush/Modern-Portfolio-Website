@@ -1,7 +1,7 @@
 /**
  * Modern Portfolio Website JavaScript
  * Features: Mobile Navigation, Smooth Scrolling, Form Validation,
- * Project Filtering, Typing Animation, Scroll Animations
+ * Project Filtering, Scroll Animations, Theme Switcher
  *
  * Educational Purpose: Demonstrates modern JavaScript patterns and best practices
  * for web development students.
@@ -343,61 +343,7 @@ class FormValidator {
 // ===========================================
 // 5. TYPING ANIMATION EFFECT
 // ===========================================
-
-/**
- * Creates a typewriter effect for text elements
- */
-class TypingAnimation {
-  constructor(element, texts, options = {}) {
-    this.element = element;
-    this.texts = texts;
-    this.options = {
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000,
-      loop: true,
-      ...options,
-    };
-
-    this.textIndex = 0;
-    this.charIndex = 0;
-    this.isDeleting = false;
-
-    this.init();
-  }
-
-  init() {
-    if (!this.element || this.texts.length === 0) return;
-
-    this.type();
-  }
-
-  type() {
-    const currentText = this.texts[this.textIndex];
-
-    if (this.isDeleting) {
-      this.element.textContent = currentText.substring(0, this.charIndex - 1);
-      this.charIndex--;
-    } else {
-      this.element.textContent = currentText.substring(0, this.charIndex + 1);
-      this.charIndex++;
-    }
-
-    let typeSpeed = this.isDeleting
-      ? this.options.backSpeed
-      : this.options.typeSpeed;
-
-    if (!this.isDeleting && this.charIndex === currentText.length) {
-      typeSpeed = this.options.backDelay;
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.charIndex === 0) {
-      this.isDeleting = false;
-      this.textIndex = (this.textIndex + 1) % this.texts.length;
-    }
-
-    setTimeout(() => this.type(), typeSpeed);
-  }
-}
+// Typing animation removed for a static hero.
 
 // ===========================================
 // 6. SCROLL ANIMATIONS
@@ -420,12 +366,12 @@ class ScrollAnimations {
     // Create intersection observer
     this.observer = new IntersectionObserver(
       (entries) => this.handleIntersection(entries),
-      this.observerOptions
+      this.observerOptions,
     );
 
     // Observe elements with animation classes
     const animatedElements = document.querySelectorAll(
-      ".project-card, .skill-category, .contact-item, .about-text, .hero-content"
+      ".hero-content, .project-card, .service-card, .testimonial-card, .client-card, .blog-card, .contact-card, .newsletter-card",
     );
 
     animatedElements.forEach((element) => {
@@ -479,6 +425,331 @@ class HeaderScrollEffect {
 }
 
 // ===========================================
+// 8. THEME SELECTOR
+// ===========================================
+
+class ThemeSelector {
+  constructor(root) {
+    this.root = root;
+    this.button = root.querySelector(".theme-select__button");
+    this.label = root.querySelector(".theme-select__current");
+    this.menu = root.querySelector(".theme-select__menu");
+    this.options = Array.from(root.querySelectorAll(".theme-select__option"));
+    this.init();
+  }
+
+  init() {
+    if (
+      !this.button ||
+      !this.label ||
+      !this.menu ||
+      this.options.length === 0
+    ) {
+      return;
+    }
+
+    const savedTheme = localStorage.getItem("theme") || "system-light";
+    this.setTheme(savedTheme, false);
+
+    this.button.addEventListener("click", () => {
+      this.root.classList.toggle("is-open");
+      this.button.setAttribute(
+        "aria-expanded",
+        this.root.classList.contains("is-open") ? "true" : "false",
+      );
+    });
+
+    this.options.forEach((option) => {
+      option.addEventListener("click", () => {
+        const nextTheme = option.dataset.value;
+        if (nextTheme) {
+          this.setTheme(nextTheme, true);
+        }
+        this.closeMenu();
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!this.root.contains(event.target)) {
+        this.closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        this.closeMenu();
+      }
+    });
+  }
+
+  setTheme(theme, persist) {
+    const matched = this.options.find(
+      (option) => option.dataset.value === theme,
+    );
+    const labelText = matched?.textContent || "System Light";
+
+    document.body.dataset.theme = theme;
+    this.label.textContent = labelText;
+
+    this.options.forEach((option) => {
+      option.setAttribute(
+        "aria-selected",
+        option.dataset.value === theme ? "true" : "false",
+      );
+    });
+
+    if (persist) {
+      localStorage.setItem("theme", theme);
+    }
+  }
+
+  closeMenu() {
+    if (!this.root.classList.contains("is-open")) return;
+    this.root.classList.remove("is-open");
+    this.button.setAttribute("aria-expanded", "false");
+  }
+}
+
+// ===========================================
+// 9. CONTENT LOADER
+// ===========================================
+
+class ContentLoader {
+  constructor(url) {
+    this.url = url;
+  }
+
+  async load() {
+    try {
+      const response = await fetch(this.url, { cache: "no-store" });
+      if (!response.ok) return;
+      const data = await response.json();
+      this.apply(data);
+    } catch (error) {
+      console.warn("Content JSON not loaded", error);
+    }
+  }
+
+  apply(data) {
+    if (!data) return;
+
+    this.setTextAll("brand.name", data.brand?.name);
+    this.setTextAll("hero.eyebrow", data.hero?.eyebrow);
+    this.setTextAll("hero.title", data.hero?.title);
+    this.setTextAll("hero.subtitle", data.hero?.subtitle);
+    this.setImage("hero.avatar", data.hero?.avatar);
+
+    this.setTextAll("contact.availability", data.contact?.availability);
+    this.setLink("contact.email", data.contact?.email, "mailto:");
+    this.setLink("contact.phone", data.contact?.phone, "tel:");
+    this.setTextAll("contact.location", data.contact?.location);
+    this.setTextAll("footer.tagline", data.footer?.tagline);
+
+    this.renderProjects(data.projects);
+    this.renderServices(data.services);
+    this.renderTestimonials(data.testimonials);
+    this.renderClients(data.clients);
+    this.renderBlog(data.blog);
+  }
+
+  setTextAll(key, value) {
+    if (!value) return;
+    document.querySelectorAll(`[data-site="${key}"]`).forEach((node) => {
+      node.textContent = value;
+    });
+  }
+
+  setImage(key, image) {
+    if (!image?.src) return;
+    document.querySelectorAll(`[data-site="${key}"]`).forEach((node) => {
+      node.setAttribute("src", image.src);
+      node.setAttribute("alt", image.alt || "");
+    });
+  }
+
+  setLink(key, value, prefix) {
+    if (!value) return;
+    document.querySelectorAll(`[data-site="${key}"]`).forEach((node) => {
+      node.textContent = value;
+      node.setAttribute("href", `${prefix}${value}`);
+    });
+  }
+
+  renderProjects(items) {
+    const container = document.querySelector('[data-list="projects"]');
+    if (!container || !Array.isArray(items) || items.length === 0) return;
+    container.innerHTML = "";
+
+    items.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "project-card";
+      card.setAttribute("role", "listitem");
+
+      const info = document.createElement("div");
+      info.className = "project-info";
+
+      const label = document.createElement("p");
+      label.className = "project-label";
+      label.textContent = item.label || "";
+
+      const title = document.createElement("h3");
+      title.className = "project-title";
+      title.textContent = item.title || "";
+
+      const description = document.createElement("p");
+      description.className = "project-description";
+      description.textContent = item.description || "";
+
+      const meta = document.createElement("div");
+      meta.className = "project-meta";
+      (item.tags || []).forEach((tag) => {
+        const span = document.createElement("span");
+        span.className = "tag";
+        span.textContent = tag;
+        meta.appendChild(span);
+      });
+
+      info.append(label, title, description, meta);
+
+      const footer = document.createElement("div");
+      footer.className = "project-footer";
+      if (item.link?.label) {
+        const link = document.createElement("a");
+        link.className = "text-link";
+        link.href = item.link.href || "#";
+        link.textContent = item.link.label;
+        footer.appendChild(link);
+      }
+
+      card.append(info, footer);
+      container.appendChild(card);
+    });
+  }
+
+  renderServices(items) {
+    const container = document.querySelector('[data-list="services"]');
+    if (!container || !Array.isArray(items) || items.length === 0) return;
+    container.innerHTML = "";
+
+    items.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "service-card";
+      card.setAttribute("role", "listitem");
+
+      if (item.image?.src) {
+        const img = document.createElement("img");
+        img.src = item.image.src;
+        img.alt = item.image.alt || "";
+        card.appendChild(img);
+      }
+
+      const title = document.createElement("h3");
+      title.textContent = item.title || "";
+
+      const description = document.createElement("p");
+      description.textContent = item.description || "";
+
+      card.append(title, description);
+      container.appendChild(card);
+    });
+  }
+
+  renderTestimonials(items) {
+    const container = document.querySelector('[data-list="testimonials"]');
+    if (!container || !Array.isArray(items) || items.length === 0) return;
+    container.innerHTML = "";
+
+    items.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "testimonial-card";
+      card.setAttribute("role", "listitem");
+
+      const quote = document.createElement("p");
+      quote.textContent = item.quote ? `"${item.quote}"` : "";
+
+      const footer = document.createElement("div");
+      footer.className = "testimonial-footer";
+
+      if (item.avatar?.src) {
+        const img = document.createElement("img");
+        img.src = item.avatar.src;
+        img.alt = item.avatar.alt || "";
+        footer.appendChild(img);
+      }
+
+      const textWrap = document.createElement("div");
+      const name = document.createElement("h4");
+      name.textContent = item.name || "";
+      const role = document.createElement("span");
+      role.textContent = item.role || "";
+
+      textWrap.append(name, role);
+      footer.appendChild(textWrap);
+
+      card.append(quote, footer);
+      container.appendChild(card);
+    });
+  }
+
+  renderClients(items) {
+    const container = document.querySelector('[data-list="clients"]');
+    if (!container || !Array.isArray(items) || items.length === 0) return;
+    container.innerHTML = "";
+
+    items.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "client-card";
+      card.setAttribute("role", "listitem");
+
+      if (item.image?.src) {
+        const img = document.createElement("img");
+        img.src = item.image.src;
+        img.alt = item.image.alt || "";
+        card.appendChild(img);
+      }
+
+      const name = document.createElement("span");
+      name.textContent = item.name || "";
+      card.appendChild(name);
+
+      container.appendChild(card);
+    });
+  }
+
+  renderBlog(items) {
+    const container = document.querySelector('[data-list="blog"]');
+    if (!container || !Array.isArray(items) || items.length === 0) return;
+    container.innerHTML = "";
+
+    items.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "blog-card";
+      card.setAttribute("role", "listitem");
+
+      const meta = document.createElement("p");
+      meta.className = "blog-meta";
+      meta.textContent = item.meta || "";
+
+      const title = document.createElement("h3");
+      title.className = "blog-title";
+      title.textContent = item.title || "";
+
+      const excerpt = document.createElement("p");
+      excerpt.className = "blog-excerpt";
+      excerpt.textContent = item.excerpt || "";
+
+      const link = document.createElement("a");
+      link.className = "text-link";
+      link.href = item.link?.href || "#";
+      link.textContent = item.link?.label || "Read article";
+
+      card.append(meta, title, excerpt, link);
+      container.appendChild(card);
+    });
+  }
+}
+
+// ===========================================
 // 8. INITIALIZATION
 // ===========================================
 
@@ -494,28 +765,13 @@ document.addEventListener("DOMContentLoaded", () => {
   new ScrollAnimations();
   new HeaderScrollEffect();
 
-  // Initialize typing animation for hero subtitle
-  const heroSubtitle = document.querySelector(".hero-subtitle");
-  if (heroSubtitle) {
-    const texts = [
-      "Full Stack Developer & UI/UX Designer",
-      "Creative Problem Solver",
-      "Code Enthusiast",
-      "Digital Innovation Specialist",
-    ];
-
-    // Store original text
-    const originalText = heroSubtitle.textContent;
-
-    // Start typing animation after a delay
-    setTimeout(() => {
-      new TypingAnimation(heroSubtitle, texts, {
-        typeSpeed: 80,
-        backSpeed: 40,
-        backDelay: 2500,
-      });
-    }, 2000);
+  const themeSelect = document.querySelector("[data-theme-select]");
+  if (themeSelect) {
+    new ThemeSelector(themeSelect);
   }
+
+  const contentLoader = new ContentLoader("data/content.json");
+  contentLoader.load();
 
   // Add loading class removal for smooth entrance
   document.body.classList.add("loaded");
@@ -585,7 +841,6 @@ if (typeof module !== "undefined" && module.exports) {
     SmoothScrolling,
     ProjectFilter,
     FormValidator,
-    TypingAnimation,
     ScrollAnimations,
     Utils,
   };
