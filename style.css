@@ -423,11 +423,10 @@ header {
   position: relative;
   max-width: var(--content-max);
   margin: 0 auto;
-  min-height: 70vh;
   display: grid;
   place-items: center;
   text-align: center;
-  padding-bottom: var(--space-16);
+  padding: var(--space-20) var(--space-6) var(--space-16);
 }
 
 .eyebrow {
