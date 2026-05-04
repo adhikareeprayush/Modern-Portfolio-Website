@@ -348,11 +348,11 @@ header {
   padding: var(--space-2);
   background: var(--paper);
   border-radius: var(--radius-sm);
+  color: var(--ink);
 }
 
-.hamburger img {
-  width: 20px;
-  height: 20px;
+.hamburger__icon {
+  display: block;
 }
 
 .nav-actions {
